@@ -1,0 +1,57 @@
+[
+    {
+        "catalog_id": 1,
+        "name": "Kinh dị",
+        "description": "Các ấn phẩm về thể loại huyền bí, giả tưởng và kinh dị, đem lại cảm giác ly kỳ và bất ngờ cho người đọc."
+    },
+    {
+        "catalog_id": 2,
+        "name": "Truyện thiếu nhi",
+        "description": "Các loại truyện dành cho thiếu nhi, phù hợp với mọi độ tuổi, giúp phát triển trí tưởng tượng và giáo dục nhân cách."
+    },
+    {
+        "catalog_id": 3,
+        "name": "Truyện ngắn",
+        "description": "Tuyển tập các truyện ngắn và tản văn nhẹ nhàng, sâu sắc về cuộc sống và con người."
+    },
+    {
+        "catalog_id": 4,
+        "name": "Trinh thám",
+        "description": "Các câu chuyện trinh thám ly kỳ, với những màn điều tra và phá án đầy lôi cuốn."
+    },
+    {
+        "catalog_id": 5,
+        "name": "Truyện cười",
+        "description": "Truyện cười và truyện hài hước, mang lại tiếng cười và giây phút thư giãn cho người đọc."
+    },
+    {
+        "catalog_id": 6,
+        "name": "Tiểu thuyết",
+        "description": "Các tiểu thuyết thuộc nhiều thể loại, từ tình cảm, lãng mạn đến phiêu lưu và hành động."
+    },
+    {
+        "catalog_id": 7,
+        "name": "Chính trị",
+        "description": "Các ấn phẩm về chính trị, pháp lý và triết học, cung cấp kiến thức và cái nhìn sâu sắc về xã hội, luật pháp và tư tưởng."
+    },
+    {
+        "catalog_id": 8,
+        "name": "Văn hóa",
+        "description": "Các tài liệu về văn hóa, nghệ thuật và du lịch, giúp mở rộng kiến thức và khám phá vẻ đẹp của thế giới."
+    },
+    {
+        "catalog_id": 9,
+        "name": "Kinh tế",
+        "description": "Các sách và tài liệu về kinh tế, tài chính và quản lý, cung cấp kiến thức cho người học và các chuyên gia trong lĩnh vực này."
+    },
+    {
+        "catalog_id": 10,
+        "name": "Bút - Viết",
+        "description": "Dụng cụ hỗ trợ viết lách, ký kết và vẽ, mang lại sự chính xác và tinh tế trong từng nét chữ."
+    },
+    {
+        "catalog_id": 11,
+        "name": "Dụng cụ văn phòng",
+        "description": "Các sản phẩm hỗ trợ công việc hàng ngày, đảm bảo hiệu quả và tổ chức trong môi trường làm việc."
+    }
+]
