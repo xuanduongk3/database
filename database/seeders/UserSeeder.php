@@ -3,49 +3,41 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Faker\Factory as Faker;
 
 class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        // Tạo tài khoản admin
+        //
         User::create([
-            'firstname' => 'Xuân Dương',
-            'lastname' => 'Nguyễn',
-            'gender' => true,
+            'firstname' => '',
+            'lastname' => 'admin',
+            'gender' => 1,
+            'birthday' => '1999-09-09',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('123456'), // Hash mật khẩu
+            'password' => Hash::make('123456'),
             'role' => 'admin',
-            'phone' => '0363672067',
+            'phone' => '0987753456',
+            'firstlogin' => 1
+        ]);
+        User::create([
+            'firstname' => 'Nguyễn',
+            'lastname' => 'Quang Huy',
+            'gender' => 1,
+            'birthday' => '2007-04-18',
+            'email' => 'khachhang@gmail.com',
+            'password' => Hash::make('123456'),
+            'role' => 'customer',
+            'phone' => '0987753456',
+            'firstlogin' => 0
         ]);
 
-        // Tạo 24 tài khoản khách hàng sử dụng Faker
-        $faker = Faker::create();
-
-        for ($i = 1; $i <= 24; $i++) {
-            User::create([
-                'firstname' => $faker->firstName,
-                'lastname' => $faker->lastName,
-                'gender' => $faker->boolean,
-                'birthday' => $faker->dateTimeBetween('-60 years', '-18 years')->format('Y-m-d'),
-                'email' => $faker->unique()->safeEmail,
-                'password' => Hash::make('password'), 
-                'role' => 'customer', 
-                'phone' => $faker->phoneNumber,
-                'city' => $faker->city,
-                'district' => $faker->word, 
-                'ward' => $faker->word, 
-                'address' => $faker->address,
-                'firstlogin' => false, 
-            ]);
-        }
+        User::factory()->count(50)->create();
     }
 }

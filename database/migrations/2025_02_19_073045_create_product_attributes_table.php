@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('catalogs', function (Blueprint $table) {
-            $table->id('catalog_id'); // Cột khóa chính, kiểu bigInteger
-            $table->string('name');
-            $table->string('description');
+        Schema::create('product_attributes', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('cascade');
+            $table->string('attr_name');
+            $table->timestamp('attr_value');
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('catalogs');
+        Schema::dropIfExists('product_attributes');
     }
 };

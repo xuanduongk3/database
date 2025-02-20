@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('flashsales', function (Blueprint $table) {
-            $table->id('flashsale_id');
-            $table->foreignId('product_id')->constrained('products', 'product_id');
-            $table->integer('discount_price');
+            $table->id();
+            $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('cascade');
+            $table->decimal('discount_price',10,2);
             $table->integer('quantity');
             $table->date('start_date');
             $table->date('end_date');

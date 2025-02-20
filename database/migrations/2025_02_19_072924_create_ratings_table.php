@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->id('rating_id'); 
-            $table->integer('score'); 
-            $table->string('label'); 
-            $table->timestamps(); 
-        });        
+            $table->id();
+            $table->integer('score');
+            $table->enum('label', ['rất tệ', 'tệ', 'bình thường', 'tốt', 'rất tốt']);
+            $table->timestamps();
+        });
     }
 
     /**

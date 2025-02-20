@@ -9,17 +9,17 @@ class OrderShippingAddress extends Model
 {
     use HasFactory;
     protected $table = 'order_shipping_addresses';
-    protected $primaryKey = 'order_shipping_address_id';
+    protected $primaryKey = 'id';
     
     protected $fillable = [
         'order_id', 
         'full_name', 
         'phone', 
-        'address_line1', 
-        'address_line2', 
         'province', 
         'district', 
         'ward',
+        'address_line1', 
+        'address_line2', 
     ];
 
     // Mối quan hệ với bảng orders

@@ -9,17 +9,15 @@ class Product extends Model
 {
     use HasFactory;
     protected $table = 'products';
-    protected $primaryKey = 'product_id';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'title',
+        'product_name',
         'description',
-        'catalog_id',
-        'author',
-        'publish_year',
         'price',
+        'discount_price',
         'stock',
-        'image',
-        'color'
+        'product_image',
+        'catalog_id'
     ];
 
     public function catalog()

@@ -10,14 +10,13 @@ class ProductDetail extends Model
     use HasFactory;
 
     protected $table = 'product_details';
-    protected $primaryKey = 'product_detail_id';
+    protected $primaryKey = 'id';
     
     protected $fillable = [
         'product_id',
         'supplier_id',
         'brand_id',
         'color_id',
-        'publisher_id',
         'publication_year',
         'author',
         'origin',
@@ -45,8 +44,4 @@ class ProductDetail extends Model
         return $this->belongsTo(Color::class, 'color_id');
     }
 
-    public function publisher()
-    {
-        return $this->belongsTo(Publisher::class, 'publisher_id');
-    }
 }

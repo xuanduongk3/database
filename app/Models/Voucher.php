@@ -10,15 +10,18 @@ class Voucher extends Model
     use HasFactory;
 
     protected $table = 'vouchers';
-    protected $primaryKey = 'voucher_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'code',
         'name',
         'description',
-        'discount',
+        'discount_value',
+        'min_order_value',
+        'max_discount_amount',
         'start_date',
         'end_date',
-        'usage_limit',
+        'quantity',
+        'status'
     ];
 }

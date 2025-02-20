@@ -2,109 +2,89 @@
 
 namespace Database\Seeders;
 
-use App\Models\Order;
-use App\Models\OrderDetail;
-use App\Models\Product;
-use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Models\Product;
 use Faker\Factory as Faker;
-
 class OrderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        // Lấy tất cả khách hàng
-        $users = User::where('role', 'customer')->get();
-
-        // Faker để tạo ngày tháng
         $faker = Faker::create();
 
-        // Các phương thức thanh toán và trạng thái đơn hàng
-        $paymentMethods = ['momo', 'bank', 'cash'];
-        $statuses = ['Chờ xác nhận', 'Đang chuẩn bị hàng', 'Đang giao hàng', 'Đã giao hàng'];
+        // Lấy danh sách user_id từ bảng users
+        $userIds = User::pluck('id')->toArray();
+        // Lấy danh sách product_id từ bảng products
+        $productIds = Product::pluck('id')->toArray();
 
-        foreach ($users as $user) {
-            // Random số lượng đơn hàng (10 đến 20 đơn hàng)
-            $orderCount = rand(10, 20);
+        // Số lượng đơn hàng cần tạo, ví dụ 20 đơn hàng
+        $numOrders = 50;
 
-            for ($i = 0; $i < $orderCount; $i++) {
-                // Tạo đơn hàng
-                $orderDate = $faker->dateTimeBetween('2024-01-01', '2024-12-31');
-                $order = Order::create([
-                    'user_id' => $user->user_id,
-                    'order_date' => $orderDate,
-                    'status' => $statuses[array_rand($statuses)], // Random trạng thái
-                    'payment_method' => $paymentMethods[array_rand($paymentMethods)], // Random phương thức thanh toán
-                    'total' => 0, // Tổng sẽ được tính sau
-                    'shipping_fee' => 0, // Phí vận chuyển sẽ được tính sau
-                    'product_total' => 0, // Tổng tiền sản phẩm sẽ được tính sau
-                ]);
+        for ($i = 0; $i < $numOrders; $i++) {
+            // Tạo phí vận chuyển ngẫu nhiên cho đơn hàng
+            $shippingFee = 23000;
+            // Khởi tạo mảng chứa chi tiết đơn hàng và subtotal ban đầu = 0
+            $orderDetailsData = [];
+            $subtotal = 0;
+            // Số sản phẩm trong đơn hàng: từ 1 đến 3
+            $numProducts = $faker->numberBetween(1, 3);
 
-                // Random số lượng sản phẩm trong đơn hàng (3 đến 8 sản phẩm)
-                $productTotal = 0;
-                $productCount = rand(3, 8);
-                $addedProducts = []; // Mảng để theo dõi sản phẩm đã thêm
-
-                for ($j = 0; $j < $productCount; $j++) {
-                    // Random sản phẩm (Chọn một sản phẩm ngẫu nhiên từ bảng products)
-                    $product = Product::inRandomOrder()->first();
-
-                    // Kiểm tra sản phẩm đã được thêm vào đơn hàng chưa
-                    if (isset($addedProducts[$product->product_id])) {
-                        // Nếu sản phẩm đã tồn tại, tăng số lượng
-                        $existingDetail = $addedProducts[$product->product_id];
-                        $existingDetail->quantity += rand(1, 5);
-                        $existingDetail->price = $existingDetail->quantity * $product->price;
-                        $existingDetail->save();
-
-                        // Cập nhật tổng tiền sản phẩm
-                        $productTotal += $existingDetail->price - ($existingDetail->price / $existingDetail->quantity * ($existingDetail->quantity - rand(1, 5)));
-                    } else {
-                        // Nếu sản phẩm chưa tồn tại, tạo chi tiết đơn hàng mới
-                        $quantity = rand(1, 5);
-                        $price = $product->price * $quantity;
-                        $productTotal += $price;
-
-                        $orderDetail = OrderDetail::create([
-                            'order_id' => $order->order_id,
-                            'product_id' => $product->product_id,
-                            'quantity' => $quantity,
-                            'price' => $price,
-                        ]);
-
-                        // Thêm sản phẩm vào mảng đã thêm
-                        $addedProducts[$product->product_id] = $orderDetail;
-                    }
+            for ($j = 0; $j < $numProducts; $j++) {
+                // Chọn một product ngẫu nhiên
+                $productId = $faker->randomElement($productIds);
+                $product = Product::find($productId);
+                if (!$product) {
+                    continue;
                 }
+                
+                // Số lượng mua từ 1 đến 5
+                $quantity = $faker->numberBetween(1, 5);
+                // Lấy giá gốc và discount của sản phẩm
+                $originalPrice = $product->price;
+                $discountPercent = $product->discount_price; // discount_price được hiểu là % giảm giá
 
-                // Tính phí vận chuyển dựa trên tổng tiền sản phẩm
-                $shippingFee = 0;
-                if ($productTotal < 100000) {
-                    $shippingFee = 30000;
-                } elseif ($productTotal >= 100000 && $productTotal < 500000) {
-                    $shippingFee = 20000; // Trường hợp bổ sung
-                } elseif ($productTotal >= 500000 && $productTotal <= 1000000) {
-                    $shippingFee = 10000;
-                } else { // $productTotal > 1000000
-                    $shippingFee = 0;
-                }
+                // Tính giá bán hiệu chỉnh theo discount: nếu discount_percent > 0
+                $effectivePrice = $originalPrice * (1 - ($discountPercent / 100));
+                // Tổng tiền của sản phẩm này trong đơn hàng
+                $totalDetail = $effectivePrice * $quantity;
+                // Cộng dồn subtotal
+                $subtotal += $totalDetail;
 
-                // Tổng giá trị đơn hàng bao gồm phí vận chuyển
-                $totalWithShipping = $productTotal + $shippingFee;
-
-                // Cập nhật tổng giá trị đơn hàng, phí vận chuyển, và tổng tiền sản phẩm
-                $order->update([
-                    'total' => $totalWithShipping,
-                    'shipping_fee' => $shippingFee,
-                    'product_total' => $productTotal,
-                ]);
+                $orderDetailsData[] = [
+                    'product_id' => $productId,
+                    'quantity'   => $quantity,
+                    'price'      => $effectivePrice,
+                    'total'      => $totalDetail,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
             }
+
+            // Tổng tiền đơn hàng = subtotal + phí vận chuyển
+            $totalPrice = $subtotal + $shippingFee;
+
+            // Tạo đơn hàng
+            $orderId = DB::table('orders')->insertGetId([
+                'user_id'        => $faker->randomElement($userIds),
+                'total_price'    => $totalPrice,
+                'shipping_fee'   => $shippingFee,
+                'payment_method' => $faker->randomElement(['Tiền mặt', 'Chuyển khoản ngân hàng', 'MoMo']),
+                'status'         => $faker->randomElement(['Chờ xác nhận', 'Chuẩn bị hàng', 'Đang giao hàng', 'Đã giao hàng']),
+                'order_date'     => $faker->dateTimeBetween('-1 month', 'now')->format('Y-m-d'),
+                'created_at'     => now(),
+                'updated_at'     => now(),
+            ]);
+
+            // Gán order_id cho từng chi tiết đơn hàng và insert
+            foreach ($orderDetailsData as &$detail) {
+                $detail['order_id'] = $orderId;
+            }
+            DB::table('order_details')->insert($orderDetailsData);
         }
     }
 }

@@ -10,11 +10,12 @@ class Flashsale extends Model
     use HasFactory;
 
     protected $table = 'flashsales';
-    protected $primaryKey = 'flashsale_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-        'discount',
         'product_id',
+        'discount_price',
+        'quantity',
         'start_date',
         'end_date',
     ];
