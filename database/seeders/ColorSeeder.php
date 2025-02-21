@@ -44,6 +44,9 @@ class ColorSeeder extends Seeder
             ],
             [
                 'color_name' => 'Xám'
+            ],
+            [
+                'color_name' => 'Kem'
             ]
         ];
 
