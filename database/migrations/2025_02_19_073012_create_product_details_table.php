@@ -16,10 +16,10 @@ return new class extends Migration
             $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('cascade');
             $table->foreignId('supplier_id')->nullable()->constrained('suppliers')->onDelete('cascade');
             $table->foreignId('brand_id')->nullable()->constrained('brands')->onDelete('cascade');
-            $table->foreignId('color_id')->nullable()->constrained('colors')->onDelete('cascade');
             $table->year('publication_year')->nullable();
             $table->string('author')->nullable();
             $table->string('publisher')->nullable();
+            $table->string('color')->nullable();
             $table->string('origin')->nullable();
             $table->string('language')->nullable();
             $table->timestamps();
