@@ -22,13 +22,11 @@ class UserFactory extends Factory
     {
         return [
             //
-            'firstname' => $this->faker->firstName,
-            'lastname' => $this->faker->lastName,
-            'gender' => $this->faker->randomElement([0,1]),
+            'username' => $this->faker->name(),
+            'gender' => $this->faker->randomElement([0, 1]),
             'birthday' => $this->faker->date('y-m-d'),
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make('123456'),
-            'firstlogin' => $this->faker->randomElement([0,1])
         ];
     }
 }

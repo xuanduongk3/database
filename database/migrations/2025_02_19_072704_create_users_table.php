@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('firstname')->nullable();
-            $table->string('lastname');
+            $table->string('username');
             $table->boolean('gender')->nullable();
             $table->date('birthday')->nullable();
             $table->string('email')->unique();
@@ -25,7 +24,6 @@ return new class extends Migration
             $table->string('district')->nullable();
             $table->string('ward')->nullable();
             $table->string('address')->nullable();
-            $table->boolean('firstlogin')->default(false);
             $table->timestamps();
         });
     }
