@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             ProductReviewSeeder::class,
             OrderShippingAddressSeeder::class,
             ProductDetailSeeder::class,
-            ProductAttributeSeeder::class
+            ProductAttributeSeeder::class,
+            CustomerAddressSeeder::class
         ]);
     }
 }

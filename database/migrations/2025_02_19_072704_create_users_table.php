@@ -20,10 +20,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('role')->default('customer');
             $table->string('phone')->nullable();
-            $table->string('city')->nullable();
-            $table->string('district')->nullable();
-            $table->string('ward')->nullable();
-            $table->string('address')->nullable();
             $table->timestamps();
         });
     }
