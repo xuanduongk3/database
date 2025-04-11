@@ -220,7 +220,7 @@ class ProductDetailSeeder extends Seeder
                 'author' => 'Nguyễn Nhật Ánh',
                 'publisher' => 'Trẻ',
                 'language' => 'Tiếng Việt'
-            ],            
+            ],
             [
                 'product_id' => 27,
                 'supplier_id' => rand(1, 13),
@@ -272,85 +272,85 @@ class ProductDetailSeeder extends Seeder
             [
                 'product_id' => 33,
                 'supplier_id' => rand(1, 13),
-                'brand_id' => rand(1,11),
-                'color_id' => 2,
+                'brand_id' => rand(1, 11),
+                'color' => 'Xanh',
                 'origin' => 'Trung Quốc'
-            ],                                                      
+            ],
             [
                 'product_id' => 34,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 2,
+                'color' => 'Xanh',
                 'origin' => 'Indonesia'
             ],
             [
                 'product_id' => 35,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 4,
+                'color' => 'Đỏ',
                 'origin' => 'Malaysia'
             ],
             [
                 'product_id' => 36,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 4,
+                'color' => 'Đỏ',
                 'origin' => 'Trung Quốc'
             ],
             [
                 'product_id' => 37,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 1,
+                'color' => 'Đen',
                 'origin' => 'Malaysia'
             ],
             [
                 'product_id' => 38,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 1,
+                'color' => 'Đen',
                 'origin' => 'Malaysia'
             ],
             [
                 'product_id' => 39,
                 'supplier_id' => 12,
                 'brand_id' => rand(1, 11),
-                'color_id' => 1,
+                'color' => 'Đen',
                 'origin' => 'Ấn Độ'
             ],
             [
                 'product_id' => 41,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 8,
+                'color' => 'Nhiều màu',
                 'origin' => 'Trung Quốc'
             ],
             [
                 'product_id' => 42,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 8,
+                'color' => 'Nhiều màu',
                 'origin' => 'Trung Quốc'
             ],
             [
                 'product_id' => 43,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 8,
+                'color' => 8,
                 'origin' => 'Trung Quốc'
             ],
             [
                 'product_id' => 44,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 9,
+                'color' => 'Trắng',
                 'origin' => 'Trung Quốc'
             ],
             [
                 'product_id' => 45,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color_id' => 11,
+                'color' => 'Kem',
                 'origin' => 'Việt Nam'
             ]
         ];

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CatalogSeeder::class,
             BrandSeeder::class,
-            ColorSeeder::class,
+            // ColorSeeder::class,
             SupplierSeeder::class,
             RatingSeeder::class,
             VoucherSeeder::class,
@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             ProductReviewSeeder::class,
             OrderShippingAddressSeeder::class,
             ProductDetailSeeder::class,
-            ProductAttributeSeeder::class
+            ProductAttributeSeeder::class,
+            CustomerAddressSeeder::class
         ]);
     }
 }
