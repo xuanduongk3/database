@@ -17,6 +17,8 @@ class CustomerAddressSeeder extends Seeder
 
         CustomerAddress::create([
             'user_id' => 2,
+            'username' => 'Nguyễn Quang Huy',
+            'phone' => '0987654321',
             'province' => 'Hồ Chí Minh',
             'district' => 'Quận 12',
             'ward' => 'Trung Mỹ Tây',
