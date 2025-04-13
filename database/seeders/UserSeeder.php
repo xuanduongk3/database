@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456'),
             'role' => 'admin',
             'phone' => '0987753456',
+            'status' => 'active'
         ]);
         User::create([
             'username' => 'Nguyễn Quang Huy',
@@ -32,6 +33,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456'),
             'role' => 'customer',
             'phone' => '0987753456',
+            'status' => 'active'
         ]);
 
         User::factory()->count(50)->create();
