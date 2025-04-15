@@ -27,6 +27,7 @@ class UserFactory extends Factory
             'birthday' => $this->faker->date('y-m-d'),
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make('123456'),
+            'status' => $this->faker->randomElement(['active', 'is_active']),
         ];
     }
 }
