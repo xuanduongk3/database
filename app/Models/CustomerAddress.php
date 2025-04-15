@@ -13,6 +13,8 @@ class CustomerAddress extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'user_id',
+        'username',
+        'phone',
         'province',
         'district',
         'ward',
