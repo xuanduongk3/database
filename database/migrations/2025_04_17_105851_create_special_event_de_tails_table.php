@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('otp_verifies', function (Blueprint $table) {
+        Schema::create('special_event_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
-            $table->string('otp_code');
-            $table->integer('expired');
-            $table->string('type');
-            $table->boolean('is_verify')->default(false);
+            $table->foreignId('event_id')->nullable()->constrained('special_events')->onDelete('cascade');
+            $table->longText('content')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('opt_verifies');
+        Schema::dropIfExists('special_event_de_tails');
     }
 };

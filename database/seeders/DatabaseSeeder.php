@@ -29,7 +29,8 @@ class DatabaseSeeder extends Seeder
             OrderShippingAddressSeeder::class,
             ProductDetailSeeder::class,
             ProductAttributeSeeder::class,
-            CustomerAddressSeeder::class
+            CustomerAddressSeeder::class,
+            SpecialEventSeeder::class
         ]);
     }
 }
