@@ -336,7 +336,7 @@ class ProductDetailSeeder extends Seeder
                 'product_id' => 43,
                 'supplier_id' => rand(1, 13),
                 'brand_id' => rand(1, 11),
-                'color' => 8,
+                'color' => "Trắng",
                 'origin' => 'Trung Quốc'
             ],
             [

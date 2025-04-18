@@ -30,26 +30,26 @@ class ProductSeeder extends Seeder
                 "price" =>  80000,
                 'discount_price' => 8,
                 "stock" =>  10,
-                "product_image" =>  "si-so-lop-vang-0.png",
+                "product_image" => "si-so-lop-vang-0.png",
                 "catalog_id" =>  1
             ],
             [
-                "product_name" =>  "Lễ Vật Kinh Hoàng",
-                "description" =>  "Câu chuyện bắt đầu bằng cái chết của một bé gái sơ sinh và các phản ứng kỳ lạ của gia đình đứa trẻ. Nữ thanh tra Amaia Sazalar đối mặt với những bí ẩn rùng rợn trong quá trình điều tra, đan xen các yếu tố siêu nhiên và quá khứ ám ảnh của mình.",
-                "product_image" =>  "le-vat-kinh-hoang.png",
+                "product_name" =>  "Người Chết Biết Điều Gì",
+                "description" =>  "Đằng sau cánh cửa im lìm là một cái xác đang phân hủy, thối rữa và bốc mùi ngai ngái. Những vết cắn nham nhở của lũ chuột ngập ngụa trên đống nội tạng bầy nhầy. Cẳng tay, cẳng chân được đựng trong túi du lịch và vết xăm mình là dấu hiệu duy nhất để nhận dạng danh tính, nhưng... chúng không thuộc về cùng một người.",
+                "product_image" =>  "nguoi-chet-biet-dieu-gi.png",
                 "price" =>  95000,
                 'discount_price' => 12,
                 "stock" =>  10,
                 "catalog_id" =>  1
             ],
             [
-                "product_name" =>  "Ngủ Cùng Người Chết",
-                "description" =>  "Câu chuyện kể về Phương Linh, cô gái mồ côi với quá khứ đầy ám ảnh. Trong một dịp trở về căn nhà cũ, cô phát hiện hồn ma vẫn luôn theo dõi mình. Rốt cuộc hồn ma đó có liên quan gì tới cái chết của cha mẹ cô?",
-                "product_image" =>  "ngu-cung-nguoi-chet.png",
+                "product_name" =>  "Hồ Điệp Và Kình Ngư",
+                "description" =>  "Một câu chuyện cuốn hút ngay từ những trang đầu tiên - Khi tình yêu trở thành sợi dây mong manh giữa sinh tử, phản bội và hy vọng. Khi một nàng hồ điệp nhỏ bé chạm trán với kình ngư mạnh mẽ, liệu đó là định mệnh hay chỉ là một giấc mộng chóng tàn?",
+                "product_image" =>  "ho-diep-va-kinh-ngu.png",
                 "price" =>  60000,
                 'discount_price' => 10,
                 "stock" =>  20,
-                "catalog_id" =>  1
+                "catalog_id" =>  6
             ],
             [
                 "product_name" =>  "Món Quà Đến Từ Cõi Chết",
@@ -425,7 +425,7 @@ class ProductSeeder extends Seeder
 
         ];
 
-        foreach($data as $data){
+        foreach ($data as $data) {
             Product::create($data);
         }
     }
