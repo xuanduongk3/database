@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('cascade');
+            $table->foreignId('order_id')->nullable()->constrained('orders')->onDelete('cascade');
             $table->foreignId('rating_id')->nullable()->constrained('ratings')->onDelete('cascade');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

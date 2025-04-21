@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
-            $table->decimal('total_price',10,2);
-            $table->decimal('shipping_fee',10,2);
-            $table->enum('payment_method',['Tiền mặt','Chuyển khoản ngân hàng','MoMo'])->default('Tiền mặt');
-            $table->enum('status',['Chờ xác nhận','Chuẩn bị hàng','Đang giao hàng','Đã giao hàng'])->default('Chờ xác nhận');
+            $table->decimal('total_price', 10, 2);
+            $table->decimal('shipping_fee', 10, 2);
+            $table->enum('payment_method', ['Tiền mặt', 'Chuyển khoản ngân hàng', 'MoMo'])->default('Tiền mặt');
+            $table->boolean('is_payment')->default(false);
+            $table->enum('status', ['Chờ xác nhận', 'Chuẩn bị hàng', 'Đang giao hàng', 'Đã giao hàng'])->default('Chờ xác nhận');
             $table->date('order_date')->default(now());
             $table->timestamps();
         });
