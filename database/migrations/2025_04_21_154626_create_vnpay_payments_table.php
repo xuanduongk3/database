@@ -14,12 +14,7 @@ return new class extends Migration
         Schema::create('vnpay_payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
-            $table->integer('vnp_Amount');
-            $table->string('vnp_BankCode');
-            $table->string('vnp_BankTranNo');
-            $table->string('vnp_CardType');
-            $table->dateTime('pay_date');
-            $table->string('vnp_TransactionNo');
+            $table->text('vn_pay');
             $table->timestamps();
         });
     }
