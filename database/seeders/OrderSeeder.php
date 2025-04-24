@@ -18,7 +18,7 @@ class OrderSeeder extends Seeder
         $faker = Faker::create();
 
         // Lấy danh sách user_id từ bảng users
-        $userIds = User::pluck('id')->toArray();
+        $userIds = User::where('id', '!=', 1)->pluck('id')->toArray();
         // Lấy danh sách product_id từ bảng products
         $productIds = Product::pluck('id')->toArray();
 
