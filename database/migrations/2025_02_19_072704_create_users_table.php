@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('role')->default('customer');
             $table->string('phone')->nullable();
-            $table->enum('status', ['active', 'is_active']);
+            $table->string('fb_id')->nullable()->default(null);
+            $table->enum('status', ['active', 'is_active'])->default('is_active');
             $table->timestamps();
         });
     }
