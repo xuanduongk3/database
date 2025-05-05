@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('image');
             $table->enum('status', ['active', 'no_active'])->default('active');
-            $table->enum('position', ['homepage', 'sidebar', 'footer'])->default('homepage');
+            $table->enum('position', ['homepage', 'sidebar', 'footer', 'top_homepage'])->default('homepage');
             $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
