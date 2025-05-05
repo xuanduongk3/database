@@ -81,7 +81,7 @@ class OrderSeeder extends Seeder
                 'user_id'        => $faker->randomElement($userIds),
                 'total_price'    => $totalPrice,
                 'shipping_fee'   => $shippingFee,
-                'payment_method' => $faker->randomElement(['Tiền mặt', 'Chuyển khoản ngân hàng', 'MoMo']),
+                'payment_method' => $faker->randomElement(['Tiền mặt', 'VNPAY', 'MoMo']),
                 'status'         => $faker->randomElement(['Chờ xác nhận', 'Chuẩn bị hàng', 'Đang giao hàng', 'Đã giao hàng']),
                 'order_date'     => $faker->dateTimeBetween('-1 month', 'now')->format('Y-m-d'),
                 'created_at'     => now(),
