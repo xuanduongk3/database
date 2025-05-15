@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('role')->default('customer');
             $table->string('phone')->nullable();
             $table->string('fb_id')->nullable()->default(null);
+            $table->string('gg_id')->nullable()->default(null);
             $table->enum('status', ['active', 'is_active'])->default('is_active');
             $table->timestamps();
         });

@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('code')->unique(); // Mã voucher
-            $table->enum('discount_type',['fixed','percentage']);
+            $table->enum('type', ['discount', 'freeship']);
+            $table->enum('discount_type', ['fixed', 'percentage']);
             $table->decimal('discount_value', 10, 2); // Giá trị giảm
-            $table->decimal('min_order_value',10,2)->default(0);
-            $table->decimal('max_discount_amount',10,2)->nullable();
+            $table->decimal('min_order_value', 10, 2)->default(0);
+            $table->decimal('max_discount_amount', 10, 2)->nullable();
             $table->date('start_date'); // Ngày bắt đầu
             $table->date('end_date'); // Ngày kết thúc
             $table->integer('quantity')->default(0); // Số lần sử dụng tối đa
