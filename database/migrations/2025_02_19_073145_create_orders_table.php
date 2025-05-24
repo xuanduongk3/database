@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('is_payment')->default(false);
             $table->enum('status', ['Chờ xác nhận', 'Chuẩn bị hàng', 'Đang giao hàng', 'Đã giao hàng'])->default('Chờ xác nhận');
             $table->date('order_date')->default(now());
-            $table->date('order_payment')->default(null);
+            $table->date('payment_date')->nullable();
             $table->timestamps();
         });
     }
